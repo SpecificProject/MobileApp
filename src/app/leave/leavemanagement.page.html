@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="tertiary" >
+    <ion-title>Leave Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<div class="row">
+<div class="column">
+  <ion-card color ="light" (click)="viewleave()" class ="cardheight">
+  <ion-card-header>
+    <ion-card-subtitle><ion-icon name="eye" style="color:lightgreen"></ion-icon>
+    View Leave &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+   
+  </ion-card-content>
+</ion-card>
+</div>
+<div class="column">
+ 
+<ion-card color ="light" (click)="applyleave()" class ="cardheight"  >
+  <ion-card-header>
+    <ion-card-subtitle><ion-icon name="add" style="color:lightgreen"></ion-icon>
+     Apply Leave  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+   
+  </ion-card-content>
+</ion-card>
+</div>
+</div>
+</ion-content>

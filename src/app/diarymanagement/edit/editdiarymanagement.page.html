@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="tertiary" >
+    <ion-title>Leave Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+ 
+  <form [formGroup]="diarymanagementForm" style="margin-left:20px; margin-right:20px;margin-top:20px">
+  
+  <mat-form-field class="example-full-width">
+    <mat-label>Select Section</mat-label>
+    <input type="text"
+           placeholder="Pick one"
+           aria-label="Number"
+           matInput
+           formControlName="sectionId"
+           [matAutocomplete]="auto">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let section of sectionData" [value]="section.id">
+        {{section.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  
+  <mat-form-field class="example-full-width">
+    <mat-label>Select Subject</mat-label>
+    <input type="text"
+           placeholder="Subject"
+           aria-label="Number"
+           matInput
+           formControlName="subjectId"
+           [matAutocomplete]="autosubject">
+    <mat-autocomplete autoActiveFirstOption #autosubject="matAutocomplete">
+      <mat-option *ngFor="let subject of subjectData" [value]="subject.id">
+        {{subject.subjectName}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  
+  <mat-form-field  class="example-full-width" >
+    <mat-label>HomeWork</mat-label>
+    <textarea  matInput  placeholder="HomeWork" formControlName="description"></textarea>
+  </mat-form-field>
+  
+    
+  </form>
+  
+  
+ <button type="button" mat-raised-button style="margin-left:60px; margin-right:20px;margin-top:10px; width:260px;" [routerLink]="['../']">Cancel</button>
+  <br>
+ <button mat-raised-button style="margin-left:60px; margin-right:20px; width:260px;margin-top:10px;" color="primary" (click)="submit()" [disabled]="!diarymanagementForm.valid" >Submit</button>
+  
+
+</ion-content>

@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar color="tertiary" >
+    <ion-title>Leave Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid class="ion-text-center">
+  <ion-row class="header-row">
+      <ion-col>
+        <ion-text>Payment Details</ion-text>
+      </ion-col>
+    </ion-row>
+   <div *ngFor=" let paymentdetail of paymentdetails" >
+    <ion-row>
+      <ion-col>
+        <ion-text>
+            Salary Amount
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{paymentdetail.payAmount}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+      <div *ngFor=" let deducationdetail of paymentdetail.deducationdetails" >
+        
+      <ion-row>
+      <ion-col>
+        <ion-text>
+            {{deducationdetail.deducationName}}
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{deducationdetail.Amount}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+        </div>
+        
+        <ion-row>
+      <ion-col>
+        <ion-text>
+            Total Deducation
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{paymentdetail.deducationAmount}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+        
+       <ion-row>
+      <ion-col>
+        <ion-text>
+          Net Pay
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{paymentdetail.netPay}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+          
+       
+        
+         <ion-row>
+      <ion-col>
+        <ion-text>
+        </ion-text>
+      </ion-col>
+      </ion-row>
+        </div>
+      
+  
+  
+</ion-grid>
+ 
+</ion-content>

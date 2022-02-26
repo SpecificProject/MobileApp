@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar color="tertiary" >
+    <ion-title>Leave Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-row class="header-row">
+      <ion-col>
+        <ion-text>View Exam Marks</ion-text>
+      </ion-col>
+    </ion-row>
+    <form [formGroup]="officeForm" (ngSubmit)="submit()" style="margin-left:20px; margin-right:20px;margin-top:20px">
+          
+            <mat-form-field class="example-full-width">
+            <mat-label>Section</mat-label>
+            <mat-select required formControlName="sectionId">
+              <mat-option *ngFor="let sectiondata of sectionData" [value]="sectiondata.id">
+                {{ sectiondata.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="officeForm.controls.sectionId.hasError('required')">
+              Section is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          
+          
+          <mat-form-field class="example-full-width">
+            <mat-label>Exam</mat-label>
+            <mat-select required formControlName="examId">
+              <mat-option *ngFor="let examdata of examData" [value]="examdata.id">
+                {{ examdata.examName }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="officeForm.controls.examId.hasError('required')">
+              Exam is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+                    
+          <mat-form-field class="example-full-width">
+            <mat-label>Subject</mat-label>
+            <mat-select required formControlName="subjectId">
+              <mat-option *ngFor="let subjectdata of examSubjectData" [value]="subjectdata.id">
+                {{ subjectdata.subjectName }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="officeForm.controls.subjectId.hasError('required')">
+              Subject is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+         
+
+    </form>
+  <button type="button" mat-raised-button style="margin-left:20px; margin-right:20px; width:260px;" [routerLink]="['../']">Cancel</button>
+  <br>
+ <button mat-raised-button style="margin-left:20px; margin-right:20px; width:260px;" color="primary" (click)="submit()" [disabled]="!officeForm.valid" >Submit</button>
+   
+ <ion-content>
+
+ <ion-content>
+ <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>
+        <ion-text>
+           Student Name
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            Roll No
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+           Obtained Marks
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      
+      
+      
+   <ion-row *ngFor="let exammarkdetail of exammarksdetails">
+      <ion-col>
+        <ion-text>
+            {{exammarkdetail.studentName}}
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{exammarkdetail.studentId}}
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            {{exammarkdetail.markobtained}}
+          </ion-text>
+        </ion-col>
+      </ion-row>
+ </ion-grid>
+ 
+ 
+</ion-content>

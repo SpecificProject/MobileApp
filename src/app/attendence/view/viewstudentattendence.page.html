@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-toolbar color="tertiary" >
+    <ion-title>Leave Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<form [formGroup]="attendencemanagementForm">
+
+ <div fxLayout="column" style="margin-left:20px; margin-right:20px;margin-top:20px">
+<alert-page [alertmessage] = "alertmessage"></alert-page>
+<mat-form-field class="example-full-width">
+    <mat-label>Select Section</mat-label>
+    <input type="text"
+           placeholder="Pick one"
+           aria-label="Number"
+           matInput
+           formControlName="sectionId"
+           [matAutocomplete]="auto">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let section of sectionData" [value]="section.id">
+        {{section.name}}
+      </mat-option>
+    </mat-autocomplete>
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width">
+    <mat-label>Select Student</mat-label>
+    <input type="text"
+           placeholder="Pick one"
+           aria-label="Number"
+           matInput
+           formControlName="studentId"
+           [matAutocomplete]="autostudent">
+    <mat-autocomplete autoActiveFirstOption #autostudent="matAutocomplete">
+      <mat-option *ngFor="let student of studentData" [value]="student.id">
+        {{student.displayName}}
+      </mat-option>
+    </mat-autocomplete>
+    
+  </mat-form-field>
+  <mat-form-field>
+            <mat-label>From Date</mat-label>
+            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="fromDatePicker" required formControlName="fromDate">
+            <mat-datepicker-toggle matSuffix [for]="fromDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #fromDatePicker></mat-datepicker>
+            <mat-error *ngIf="attendencemanagementForm.controls.fromDate.hasError('required')">
+              From Date is <strong>required</strong>
+            </mat-error>
+    </mat-form-field> 
+    <mat-form-field>
+            <mat-label>To Date</mat-label>
+            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="toDatePicker" required formControlName="toDate">
+            <mat-datepicker-toggle matSuffix [for]="toDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #toDatePicker></mat-datepicker>
+            <mat-error *ngIf="attendencemanagementForm.controls.toDate.hasError('required')">
+              To Date is <strong>required</strong>
+            </mat-error>
+    </mat-form-field> 
+          </div>
+  </form>
+  
+<ion-content>
+
+ <ion-grid class="ion-text-center">
+    <ion-row class="header-row">
+      <ion-col>
+        <ion-text>Attendence Details</ion-text>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col>
+        <ion-text>
+           Student Name
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            Roll No
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+           Attendence
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row *ngFor="let studentdata of studentDataDetails">
+      <ion-col>
+        <ion-text>
+            {{studentdata.studentName}}
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{studentdata.id}}
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+          <ion-icon *ngIf="studentdata.attendenceType==='Present'" name="square" style="color:lightgreen"></ion-icon>
+          <ion-icon *ngIf="studentdata.attendenceType==='Absent'"  name="square" style="color:red"></ion-icon>
+           &nbsp;&nbsp;&nbsp;&nbsp;{{studentdata.attendenceType}}
+          </ion-text>
+        </ion-col>
+      </ion-row>
+ </ion-grid>
+  
+ <button type="button" mat-raised-button style="margin-left:60px; margin-right:20px;margin-top:10px; width:260px;" [routerLink]="['../']">Cancel</button>
+  <br>
+ <button mat-raised-button style="margin-left:60px; margin-right:20px; width:260px;margin-top:10px;" color="primary" (click)="submit()" [disabled]="!attendencemanagementForm.valid" >Submit</button>
+
+</ion-content>
+

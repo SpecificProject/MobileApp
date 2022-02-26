@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar color="tertiary" >
+    <ion-title>Leave Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+    <form [formGroup]="officeForm" (ngSubmit)="submit()">
+
+        
+         <mat-form-field class="example-full-width">
+            <mat-label>Branch</mat-label>
+            <mat-select required formControlName="schoolId">
+              <mat-option *ngFor="let schooldata of schoolData" [value]="schooldata.id">
+                {{ schooldata.codeName }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="officeForm.controls.schoolId.hasError('required')">
+              Branch is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Class</mat-label>
+            <mat-select required formControlName="classId">
+              <mat-option *ngFor="let clasdata of classData" [value]="clasdata.id">
+                {{ clasdata.codeName }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="officeForm.controls.classId.hasError('required')">
+             Class is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          
+            <mat-form-field class="example-full-width">
+            <mat-label>Section</mat-label>
+            <mat-select required formControlName="sectionId">
+              <mat-option *ngFor="let sectiondata of sectionData" [value]="sectiondata.id">
+                {{ sectiondata.codeName }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="officeForm.controls.sectionId.hasError('required')">
+              Section is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          
+          
+          <mat-form-field class="example-full-width">
+            <mat-label>Period</mat-label>
+            <mat-select required formControlName="periodId">
+              <mat-option *ngFor="let perioddata of periodData" [value]="perioddata.id">
+                {{ perioddata.codeValue }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="officeForm.controls.periodId.hasError('required')">
+              Period is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+                    
+          <mat-form-field class="example-full-width">
+            <mat-label>Subject</mat-label>
+            <mat-select required formControlName="subjectId">
+              <mat-option *ngFor="let subjectdata of subjectData" [value]="subjectdata.id">
+                {{ subjectdata.codeValue }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="officeForm.controls.subjectId.hasError('required')">
+              Subject is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Date</mat-label>
+            <input matInput [min]="minDate" [max]="maxDate" formControlName="lecturedate" required [matDatepicker]="openedOnDatePicker">
+            <mat-datepicker-toggle matSuffix [for]="openedOnDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #openedOnDatePicker></mat-datepicker>
+            <mat-error *ngIf="officeForm.controls.lecturedate.hasError('required')">
+              Opening Date is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          
+          <mat-form-field class="example-full-width">
+            <mat-label>url</mat-label>
+            <input required matInput formControlName="url">
+            <mat-error *ngIf="officeForm.controls.url.hasError('required')">
+              Url is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+      
+    </form>
+    
+  <button type="button" mat-raised-button style="margin-left:60px; margin-right:20px; margin-top:10px; width:260px;" [routerLink]="['../']">Cancel</button>
+  <br>
+ <button mat-raised-button style="margin-left:60px; margin-right:20px; width:260px;margin-top:10px;" color="primary" (click)="submit()" [disabled]="!officeForm.valid" >Submit</button>
+ 
+    
+ </ion-content>

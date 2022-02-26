@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar color="tertiary" >
+    <ion-title>Leave Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<form [formGroup]="attendencemanagementForm" >
+ <div fxLayout="column" style="margin-left:20px; margin-right:20px;margin-top:20px">
+
+<mat-form-field class="example-full-width">
+            <mat-label>From Date</mat-label>
+            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="fromDatePicker" required formControlName="lecturedate">
+            <mat-datepicker-toggle matSuffix [for]="fromDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #fromDatePicker></mat-datepicker>
+            <mat-error *ngIf="attendencemanagementForm.controls.lecturedate.hasError('required')">
+              Lecture Date <strong>is required</strong>
+            </mat-error>
+          </mat-form-field>
+  </div>
+  </form>
+<button type="button" mat-raised-button style="margin-left:20px; margin-right:20px; width:260px; aligin:center" [routerLink]="['../']">Cancel</button>
+<button mat-raised-button style="margin-left:20px; margin-right:20px; width:260px;margin-top:10px;" color="primary" (click)="submit()" [disabled]="!attendencemanagementForm.valid" >Submit</button>
+ 
+ <ion-content> 
+<div *ngIf="showvedio" style="width: 350px; height: 315px; float: none; clear: both; margin: 2px auto;">
+    <iframe  [src]="safeSrc" width="350" height="315" style="margin-top:10px;" frameborder="0" webkitallowfullscreen mozallowfullscreen
+      allowfullscreen>
+   </iframe>
+   </div>
+  <ion-grid class="ion-text-center">
+    <ion-row class="header-row">
+      <ion-col>
+        <ion-text>Course Details</ion-text>
+      </ion-col>
+    </ion-row>
+    <div *ngFor="let studentCourseDetail of studentCourseDetails">
+    <ion-row>
+        <ion-col>
+          <ion-text>
+            Period
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+           {{studentCourseDetail.periodName}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+        <ion-row>
+        <ion-col>
+          <ion-text>
+          Subject Name
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+           {{studentCourseDetail.subjectName}}
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-text>
+          Start
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-icon name="play-circle-sharp" style="color:lightgreen" (click)="viewvedio(studentCourseDetail.courseUrl)"></ion-icon>
+        </ion-col>
+      </ion-row>
+     </div>
+ </ion-grid>
+ </ion-content>
+ 

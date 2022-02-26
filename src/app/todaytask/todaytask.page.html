@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar color="tertiary" >
+    <ion-title>Leave Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<ion-grid>
+    <ion-col *ngFor="let lecturedetail of lecturedetails">
+    <ion-card color ="warning" class ="cardheight">
+     <ion-card-content>
+       {{lecturedetail.id}}-{{lecturedetail.name}}
+  </ion-card-content> 
+</ion-card>
+    </ion-col>    
+</ion-grid>
+
+</ion-content>

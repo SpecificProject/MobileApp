@@ -1,0 +1,34 @@
+ion-content ion-toolbar {
+  --background: translucent;
+}
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
+.cardheight {
+ height:80px;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+  margin-left:0px;
+  margin-top:0px;
+}
+.header-row {
+  background: #5163AA;
+  color: #fff;
+  font-size: 18px;
+}
+
+ion-col {
+  border: 1px solid #ECEEEF;
+  width:80px;
+}

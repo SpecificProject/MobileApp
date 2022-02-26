@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar color="tertiary" >
+    <ion-title>Leave Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid class="ion-text-center">
+  <ion-row class="header-row">
+      <ion-col>
+        <ion-text>View Apply Leave</ion-text>
+      </ion-col>
+    </ion-row>
+   <div *ngFor=" let staffleavedetail of staffleavedetails" >
+    <ion-row>
+      <ion-col>
+        <ion-text>
+            Approver
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{staffleavedetail.approverName}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+        
+         <ion-row>
+      <ion-col>
+        <ion-text>
+            Leave Type
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{staffleavedetail.leaveTypeName}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+        <ion-row>
+      <ion-col>
+        <ion-text>
+            From Date
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{staffleavedetail.fromdate|date:'dd MMM YYYY'}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+        
+       <ion-row>
+      <ion-col>
+        <ion-text>
+           To Date
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{staffleavedetail.todate|date:'dd MMM YYYY'}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+        
+   
+        
+        <ion-row>
+      <ion-col>
+        <ion-text>
+            Status
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{staffleavedetail.status}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+        
+         <ion-row>
+      <ion-col>
+        <ion-text>
+        </ion-text>
+      </ion-col>
+      </ion-row>
+        </div>
+      
+  
+  
+</ion-grid>
+ 
+</ion-content>

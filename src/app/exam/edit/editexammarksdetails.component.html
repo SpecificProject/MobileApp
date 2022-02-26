@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="tertiary" >
+    <ion-title>Leave Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>
+        <ion-text>
+           Student Name
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            Roll No
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+           Obtained Marks
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+      <ion-col>
+        <ion-text>
+            {{studentDataDetails.studentName}}
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{studentDataDetails.id}}
+          </ion-text>
+        </ion-col>
+        <ion-col>
+        <ion-input value="custom" [(ngModel)]="studentDataDetails.markobtained" ngDefaultControl ></ion-input>
+        </ion-col>
+      </ion-row>
+ </ion-grid>
+
+ 
+<button type="button" mat-raised-button style="margin-left:60px; margin-right:20px;margin-top:10px; width:260px;" [routerLink]="['../']">Cancel</button>
+  <br>
+ <button mat-raised-button style="margin-left:60px; margin-right:20px; width:260px;margin-top:10px;" color="primary" (click)="submit()" [disabled]="!officeForm.valid" >Submit</button>
+  
+    
+ </ion-content>

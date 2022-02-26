@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab1Page } from './tab1.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
+import { MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
+    MatButtonModule,
     RouterModule.forChild([{ path: '', component: Tab1Page }])
   ],
   declarations: [Tab1Page]

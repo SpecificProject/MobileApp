@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar color="tertiary" >
+    <ion-title>Leave Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-row class="header-row">
+      <ion-col>
+        <ion-text>Take Attendence</ion-text>
+      </ion-col>
+    </ion-row>
+<form [formGroup]="attendencemanagementForm">
+ <div fxLayout="column" style="margin-left:20px; margin-right:20px;margin-top:20px">
+<mat-form-field class="example-full-width">
+    <mat-label>Select Section</mat-label>
+    <input type="text"
+           placeholder="Pick one"
+           aria-label="Number"
+           matInput
+           formControlName="sectionId"
+           [matAutocomplete]="auto">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let section of sectionData" [value]="section.id">
+        {{section.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <!--  <mat-form-field>
+            <mat-label>Attendence Date</mat-label>
+            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="startDatePicker" required formControlName="attendenceDate">
+            <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #startDatePicker></mat-datepicker>
+            <mat-error *ngIf="attendencemanagementForm.controls.attendenceDate.hasError('required')">
+              Attendence Date is <strong>required</strong>
+            </mat-error>
+          </mat-form-field> -->
+          </div>
+  </form>
+  
+<ion-content>
+
+ <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>
+        <ion-text>
+           Student Name
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            Roll No
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+           Attendence
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row *ngFor="let studentdata of studentDataDetails">
+      <ion-col>
+        <ion-text>
+            {{studentdata.displayName}}
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{studentdata.id}}
+          </ion-text>
+        </ion-col>
+        <ion-col>
+         <mat-checkbox class="example-margin" [(ngModel)]="studentdata.attendence"></mat-checkbox>
+        
+          
+        </ion-col>
+      </ion-row>
+ </ion-grid>
+  
+ <button type="button" mat-raised-button style="margin-left:60px; margin-right:20px; margin-top:10px; width:260px; " [routerLink]="['../']">Cancel</button>
+  <br>
+ <button mat-raised-button style="margin-left:60px; margin-right:20px; width:260px;margin-top:10px;" color="primary" (click)="submit()" [disabled]="!attendencemanagementForm.valid" >Submit</button>
+ 
+</ion-content>
+

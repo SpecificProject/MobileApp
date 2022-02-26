@@ -1,20 +1,47 @@
-<ion-tabs>
+
+<ion-header *ngIf="shownavigationstabs">
+  <ion-toolbar color="tertiary">
+    <ion-title>Start Smart</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-tabs  *ngIf="shownavigationstabs">
 
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="tab1">
-      <ion-icon name="triangle"></ion-icon>
-      <ion-label>Tab One</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="tab2">
+    <ion-icon name="home-outline" color="lightgreen">Home</ion-icon>      
+    </ion-tab-button>   
+    
+    <!-- <ion-tab-button tab="tab2">
       <ion-icon name="images"></ion-icon>
       <ion-label>Photos</ion-label>
-    </ion-tab-button>
-
+    </ion-tab-button>     -->
+       
     <ion-tab-button tab="tab3">
-      <ion-icon name="square"></ion-icon>
-      <ion-label>Tab Three</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
+    <ion-icon name="log-out-outline" color="lightred" (click)="logout()"> Log Out</ion-icon> 
+    </ion-tab-button>   
+   </ion-tab-bar>
 
-</ion-tabs>
+ </ion-tabs>
+ <ion-content *ngIf="!shownavigationstabs" style="margin-left:20px; margin-right:20px;">
+     
+  <form [formGroup]="loginform">
+ <ion-list style="margin-left:40px; margin-right:40px;margin-top:20px">
+               <img src="../../assets/logo1.png">
+   
+  <ion-item>
+    <ion-input type="text" name="username" placeholder="Username" formControlName="username"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="password" name="username" placeholder="Password" formControlName="password"></ion-input>
+  </ion-item>
+</ion-list>
+ </form>
+
+<button style="margin-left:85px; margin-right:40px;margin-top:10px; width:220px;"  mat-raised-button [disabled]="!loginform.valid" color="primary" (click) ="login()"  >Login</button>
+
+</ion-content>
+

@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="tertiary" >
+    <ion-title>Leave Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+ <ion-content>
+ <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>
+        <ion-text>
+           Student Name
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            Roll No
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+           Obtained Marks
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      
+   <ion-row *ngFor="let exammarkdetail of exammarksdetails">
+      <ion-col>
+        <ion-text>
+            {{exammarkdetail.studentName}}
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{exammarkdetail.studentId}}
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            {{exammarkdetail.markobtained}}&nbsp;&nbsp;&nbsp;&nbsp;
+           <ion-icon name="create-sharp" style="color:lightgreen" (click)="update(exammarkdetail.id)"></ion-icon>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+ </ion-grid>
+ 
+ 
+</ion-content>

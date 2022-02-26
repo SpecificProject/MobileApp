@@ -1,3 +1,60 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+ <ion-menu contentId="content1" autoHide="true" side="start">
+    <ion-header>
+      <ion-toolbar color="tertiary">
+        <ion-title>Start Smart</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+       <ion-menu-toggle>
+        <ion-list>
+          <ion-item (click)="navigate('todaytask')">
+            <ion-icon name="calendar-clear" style="color:lightgreen"  slot="start"></ion-icon>
+            <ion-label >Today Task</ion-label>
+            
+          </ion-item>
+          <ion-item (click)="navigate('attendence')">
+          <ion-icon name="document-attach" style="color:lightgreen" slot="start"></ion-icon>
+            <ion-label>Attendence</ion-label>
+          </ion-item>
+          <ion-item (click)="navigate('diarymanagement')">
+            <ion-icon name="map-outline" style="color:lightgreen"  slot="start"></ion-icon>
+            <ion-label>Diary Management</ion-label>
+          </ion-item>
+          <ion-item (click)="navigate('leave')">
+            <ion-icon name="calendar-clear-outline" style="color:lightgreen"  slot="start"></ion-icon>
+            <ion-label>Leave</ion-label>
+          </ion-item>
+          <ion-item (click)="navigate('payments')">
+            <ion-icon name="wallet" style="color:lightgreen" slot="start"></ion-icon>
+            <ion-label>Payments</ion-label>
+          </ion-item>
+         
+          <ion-item (click)="navigate('onlineclass')">
+            <ion-icon name="radio-outline" style="color:lightgreen"  slot="start"></ion-icon>
+            <ion-label>Take Online Class</ion-label>
+          </ion-item>
+          
+          <ion-item (click)="navigate('uploadcourse')">
+            <ion-icon name="radio-outline" style="color:lightgreen"  slot="start"></ion-icon>
+            <ion-label>Upload Course</ion-label>
+          </ion-item>
+          
+          <ion-item (click)="navigate('addexammarks')">
+            <ion-icon name="radio-outline" style="color:lightgreen"  slot="start"></ion-icon>
+            <ion-label>Upload Exam Marks</ion-label>
+          </ion-item>
+          
+          <ion-item (click)="navigate('holiday')">
+            <ion-icon name="ellipsis-horizontal-circle-outline" style="color:lightgreen" slot="start"></ion-icon>
+            <ion-label>Holidays</ion-label>
+          </ion-item>
+        </ion-list> 
+        </ion-menu-toggle> 
+          
+        </ion-content>
+        
+  </ion-menu>
+  
+  <ion-router-outlet id="content1" main ></ion-router-outlet>
 </ion-app>

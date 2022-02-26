@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar color="tertiary" >
+    <ion-title>Leave Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid class="ion-text-center">
+  <ion-row class="header-row">
+      <ion-col>
+        <ion-text>View Apply Leave</ion-text>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col>
+        <ion-text>
+            Approver
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{leavedetails.approverName}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+        
+         <ion-row>
+      <ion-col>
+        <ion-text>
+            Leave Type
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{leavedetails.leaveTypeName}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+        <ion-row>
+      <ion-col>
+        <ion-text>
+            From Date
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{leavedetails.fromdate|date:'dd MMM YYYY'}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+        
+       <ion-row>
+      <ion-col>
+        <ion-text>
+           To Date
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{leavedetails.todate|date:'dd MMM YYYY'}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+        
+   
+        
+        <ion-row>
+      <ion-col>
+        <ion-text>
+            Status
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{leavedetails.status}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+        
+      
+  
+  
+</ion-grid>
+ <button mat-raised-button style="margin-left:60px; margin-right:20px; width:260px;margin-top:10px;" color="primary" (click)="update(leavedetails.id)" >Edit</button>
+ 
+</ion-content>

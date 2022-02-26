@@ -1,0 +1,21 @@
+ion-content ion-toolbar {
+  --background: translucent;
+}
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
+.cardheight {
+}
+.header-row {
+  background: #5163AA;
+  color: #fff;
+  font-size: 18px;
+}
+
+ion-col {
+  border: 1px solid #ECEEEF;
+}

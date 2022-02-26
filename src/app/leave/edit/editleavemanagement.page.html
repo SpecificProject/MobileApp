@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="tertiary" >
+    <ion-title>Leave Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<form [formGroup]="editleavemanagementForm" (ngSubmit)="submit()">
+
+
+        <div fxLayout="column">
+
+          
+           <mat-form-field >
+            <mat-label>Leave Type</mat-label>
+            <mat-select required formControlName="leaveType">
+              <mat-option *ngFor="let leaveType of leaveTypeData" [value]="leaveType.id">
+                {{ leaveType.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="editleavemanagementForm.controls.leaveType.hasError('required')">
+              Leave Type is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          
+            <mat-form-field>
+            <mat-label>From Date</mat-label>
+            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="fromDatePicker" required formControlName="fromdate">
+            <mat-datepicker-toggle matSuffix [for]="fromDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #fromDatePicker></mat-datepicker>
+            <mat-error *ngIf="editleavemanagementForm.controls.fromdate.hasError('required')">
+              From Date <strong>is required</strong>
+            </mat-error>
+          </mat-form-field>
+          
+          
+           <mat-form-field>
+            <mat-label>to Date</mat-label>
+            <input matInput [min]="minDate"  [matDatepicker]="toDatePicker" required formControlName="todate">
+            <mat-datepicker-toggle matSuffix [for]="toDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #toDatePicker></mat-datepicker>
+            <mat-error *ngIf="editleavemanagementForm.controls.todate.hasError('required')">
+              From Date <strong>is required</strong>
+            </mat-error>
+          </mat-form-field>
+          
+        </div>
+        
+         </form>
+      <button type="button" mat-raised-button style="margin-left:60px; margin-right:20px; margin-top:10px; width:260px;" [routerLink]="['../']">Cancel</button>
+  <br>
+ <button mat-raised-button style="margin-left:60px; margin-right:20px; width:260px;margin-top:10px;" color="primary" (click)="submit()" [disabled]="!editleavemanagementForm.valid" >Submit</button>
+ 
+</ion-content>

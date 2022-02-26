@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar color="tertiary" >
+    <ion-title>Leave Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid class="ion-text-center">
+  <ion-row class="header-row">
+      <ion-col>
+        <ion-text>Payment Details</ion-text>
+      </ion-col>
+    </ion-row>
+   <div *ngFor=" let organasationcourse of organasationcoursedata" >
+    <ion-row>
+      <ion-col>
+        <ion-text>
+            Class
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{organasationcourse.className}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+        
+      <ion-row>
+      <ion-col>
+        <ion-text>
+            Section
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{organasationcourse.sectionName}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+        
+        <ion-row>
+      <ion-col>
+        <ion-text>
+            Subject
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{organasationcourse.subjectName}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+        
+       <ion-row>
+      <ion-col>
+        <ion-text>
+          Period
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{organasationcourse.periodName}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+          
+      <ion-row>
+      <ion-col>
+        <ion-text>
+          Start
+        </ion-text>
+      </ion-col>
+        <ion-col>
+            <ion-icon name="videocam" style="color:lightgreen" (click)="startclass()"></ion-icon>
+        </ion-col>
+        </ion-row>
+       
+        
+         <ion-row>
+      <ion-col>
+        <ion-text>
+        </ion-text>
+      </ion-col>
+      </ion-row>
+        </div>
+      
+  
+  
+</ion-grid>
+ 
+</ion-content>

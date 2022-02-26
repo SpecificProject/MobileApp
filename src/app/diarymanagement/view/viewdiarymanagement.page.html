@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-toolbar color="tertiary" >
+    <ion-title>Home Work</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid class="ion-text-center">
+  <ion-row class="header-row">
+      <ion-col>
+        <ion-text>Diary Task</ion-text>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col>
+        <ion-text>
+            Date
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{diaryManagementdata.createdate|date:'dd MMM YYYY'}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+        
+        <ion-row>
+      <ion-col>
+        <ion-text>
+            Given By
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{diaryManagementdata.staffName}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+        
+       <ion-row>
+      <ion-col>
+        <ion-text>
+           Subject
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{diaryManagementdata.subject}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+        
+    <ion-row>
+      <ion-col>
+        <ion-text>
+            Class
+        </ion-text>
+      </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-text>
+            {{diaryManagementdata.className}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+        
+        <ion-row>
+      <ion-col>
+        <ion-text>
+            Section
+        </ion-text>
+      </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-text>
+            {{diaryManagementdata.sectionName}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+        
+      <ion-row>
+      <ion-col>
+        <ion-text>
+            Description
+        </ion-text>
+      </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-text>
+            {{diaryManagementdata.description}}
+          </ion-text>
+        </ion-col>
+        </ion-row>
+  
+  
+</ion-grid>
+ <button mat-raised-button style="margin-left:60px; margin-right:20px; width:260px;margin-top:10px;" color="primary" (click)="update(diaryManagementdata.id)" >Edit</button>
+ 
+</ion-content>

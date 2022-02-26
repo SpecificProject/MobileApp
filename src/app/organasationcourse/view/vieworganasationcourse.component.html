@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar color="tertiary" >
+    <ion-title>Leave Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+ <ion-grid class="ion-text-center">
+    <ion-row class="header-row">
+      <ion-col>
+        <ion-text>Lecture Details </ion-text>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col>
+        <ion-text>
+           Class
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+           {{organasationCourse.className}}
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+      <ion-col>
+        <ion-text>
+           Section
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+           {{organasationCourse.sectionName}}
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+      <ion-col>
+        <ion-text>
+           Period
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+           {{organasationCourse.periodName}}
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+      <ion-col>
+        <ion-text>
+           Subject
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+           {{organasationCourse.subjectName}}
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+      <ion-col>
+        <ion-text>
+           Date
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+           {{organasationCourse.courseDate|date:'dd MMM yyyy'}}
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      
+   <iframe  [src]="safeSrc" width="350" height="315" style="margin-top:10px;" frameborder="0" webkitallowfullscreen mozallowfullscreen
+      allowfullscreen>
+   </iframe>
+ </ion-grid>
+ <button mat-raised-button style="margin-left:60px; margin-right:20px; width:260px;margin-top:10px;"  color="primary" (click)="update(organasationCourse.id)" >Edit</button>
+ 
+
+ 
+</ion-content>

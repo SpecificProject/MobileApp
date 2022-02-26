@@ -8,5 +8,19 @@ import { Component } from '@angular/core';
 export class Tab1Page {
 
   constructor() {}
+  
+  username:string;
+  password:string; 
+  showheader:boolean=false;
+  showfotter:boolean=false;
+  
+  
+  createAccount(){
+ }
+  login(){
+   this.showheader = true;
+   this.showfotter = true;
+  
+  }
 
 }

@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="tertiary" >
+    <ion-title>Leave Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+ <ion-grid class="ion-text-center">
+    <ion-row class="header-row">
+      <ion-col>
+        <ion-text>Attendence Date {{attendencedata.attendenceDate| date: ' dd MMM yyyy'}}</ion-text>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col>
+        <ion-text>
+           Student Name
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            Roll No
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+           Attendence
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+      <ion-col>
+        <ion-text>
+            {{attendencedata.studentName}}
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{attendencedata.id}}
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+          <ion-icon *ngIf="attendencedata.attendenceType==='Present'" name="square" style="color:lightgreen"></ion-icon>
+          <ion-icon *ngIf="attendencedata.attendenceType==='Absent'"  name="square" style="color:red"></ion-icon>
+           &nbsp;&nbsp;&nbsp;&nbsp;{{attendencedata.attendenceType}}
+          </ion-text>
+        </ion-col>
+      </ion-row>
+ </ion-grid>
+ 
+
+ 
+</ion-content>
